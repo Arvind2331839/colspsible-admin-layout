@@ -1,0 +1,238 @@
+/* =========================
+   Admin Panel – Clean Layout
+   ========================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+:root{
+  --sidebar-width:260px;
+  --header-height:72px;
+  --brand-1:#651d32;
+  --brand-2:#00305c;
+  --bg:#f5f5f5;
+  --card-bg:#ffffff;
+  --radius:12px;
+}
+
+/* Base */
+html,body,.admin-app{height:100%}
+html,body{margin:0;overflow-x:hidden;background:var(--bg)}
+body{
+  font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial;
+  color:#000;
+}
+
+/* Root */
+.admin-app{
+  display:flex;
+  min-height:100vh;
+}
+
+/* =========================
+   Sidebar
+   ========================= */
+.sidebar{
+  width:var(--sidebar-width);
+  min-width:var(--sidebar-width);
+  position:fixed;
+  top:0;left:0;bottom:0;
+  background:#000;
+  color:#fff;
+  display:flex;
+  flex-direction:column;
+  z-index:1030;
+  overflow-y:auto;
+  transition:transform .3s ease;
+}
+
+.sidebar-header{
+  padding:1rem;
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+}
+
+.sidebar .logo{height:44px;border-radius:8px}
+
+.sidebar nav{
+  flex:1;
+  padding:.5rem;
+  display:flex;
+  flex-direction:column;
+}
+
+.sidebar .nav-link{
+  color:#fff;
+  padding:.75rem .9rem;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+  font-weight:600;
+}
+
+.sidebar .nav-link i{width:26px;text-align:center}
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active{background:var(--brand-1)}
+
+/* =========================
+   Content + Header
+   ========================= */
+.content{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  transition:margin-left .3s ease;
+}
+
+/* Header */
+.content > header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:var(--header-height);
+  background:var(--card-bg);
+  display:flex;
+  align-items:center;
+  border-bottom:1px solid rgba(0,0,0,.08);
+  z-index:1031;
+  transition:left .3s ease,width .3s ease;
+}
+
+.header-inner{
+  width:100%;
+  padding:0 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.page-title{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  font-size:1.1rem;
+  font-weight:600;
+}
+
+.content main{
+  padding-top:calc(var(--header-height) + 1.25rem);
+  padding-bottom:2rem;
+}
+
+/* =========================
+   Desktop (≥ 992px)
+   ========================= */
+@media (min-width:992px){
+
+  .admin-app.sidebar-open .sidebar{
+    transform:translateX(0);
+  }
+
+  .admin-app.sidebar-open .content{
+    margin-left:var(--sidebar-width);
+  }
+
+  .admin-app.sidebar-open .content > header{
+    left:var(--sidebar-width);
+    width:calc(100% - var(--sidebar-width));
+  }
+
+  .admin-app:not(.sidebar-open) .sidebar{
+    transform:translateX(-100%);
+  }
+
+  .admin-app:not(.sidebar-open) .content{
+    margin-left:0;
+  }
+
+  .admin-app:not(.sidebar-open) .content > header{
+    left:0;
+    width:100%;
+  }
+}
+
+/* =========================
+   Mobile / Tablet (< 992px)
+   ========================= */
+@media (max-width:991.98px){
+
+  .sidebar{
+    transform:translateX(-100%);
+  }
+
+  .admin-app.sidebar-open .sidebar{
+    transform:translateX(0);
+  }
+
+  .content > header{
+    left:0;
+    width:100%;
+  }
+
+  .content main{
+    padding-top:calc(56px + 1rem);
+  }
+}
+
+/* =========================
+   Cards & Widgets
+   ========================= */
+.card{
+  border:none;
+  border-radius:var(--radius);
+  background:var(--card-bg);
+  box-shadow:0 8px 24px rgba(0,0,0,.06);
+  transition:box-shadow .3s ease;
+}
+
+.card:hover{
+  box-shadow:0 12px 32px rgba(0,0,0,.08);
+}
+
+.stat-box{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px;
+  border-radius:12px;
+  color:#fff;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  transition:transform .3s ease;
+}
+
+.stat-box:hover{transform:translateY(-4px)}
+
+.icon-box{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  background:rgba(255,255,255,.15);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+}
+
+/* =========================
+   Utilities
+   ========================= */
+.avatar{
+  width:40px;height:40px;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--brand-1),var(--brand-2));
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+}
+
+.muted{color:#bdb8b8}
+.small{font-size:.85rem}
+
+/* Scrollbar */
+.sidebar::-webkit-scrollbar{width:8px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--brand-1);border-radius:4px}

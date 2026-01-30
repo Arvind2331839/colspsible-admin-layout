@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+
+@media (min-width: 992px){
+  .admin-app:not(.sidebar-open) .sidebar {
+    transform: translateX(-100%);
+  }
+  .admin-app:not(.sidebar-open) .content {
+    margin-left: 0;
+  }
+}
