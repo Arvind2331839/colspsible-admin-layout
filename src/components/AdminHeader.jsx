@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ toggleSidebar, title = "Dashboard" }) => {
+const AdminHeader = ({ toggleSidebar, title = "Dashboard" }) => {
   return (
     <header>
       <div className="header-inner">
@@ -47,4 +47,4 @@ const Header = ({ toggleSidebar, title = "Dashboard" }) => {
   );
 };
 
-export default Header;
+export default AdminHeader;

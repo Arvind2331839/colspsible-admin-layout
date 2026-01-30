@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Sidebar = ({sidebarOpen}) => {
   
@@ -6,59 +7,52 @@ const Sidebar = ({sidebarOpen}) => {
 
   return (
   <div className={`admin-app ${sidebarOpen ? "sidebar-open" : ""}`}>
-    <aside id="sidebar" class="sidebar">
-      <div class="p-3 sidebar-header d-flex align-items-center gap-2">
-        <img src="assets/images/logo.png" class="logo" alt="logo" />
-        <div class="fw-bold ms-2">MathAdventure</div>
+   <aside className="sidebar">
+      <div className="p-3 sidebar-header d-flex align-items-center gap-2">
+        <img src="/assets/images/logo.png" className="logo" alt="logo" />
+        <div className="fw-bold ms-2">MathAdventure</div>
       </div>
-      <nav class="p-3">
-        <a
-          href="admin-dashboard.html"
-          class="nav-link d-flex align-items-center"
-        >
-          <i class="bi bi-speedometer2"></i>
-          <span class="nav-text">Dashboard</span>
-        </a>
-        <a
-          href="admin-students.html"
-          class="nav-link d-flex align-items-center"
-        >
-          <i class="bi bi-people"></i>
-          <span class="nav-text">Students</span>
-        </a>
-        <a
-          href="admin-teachers.html"
-          class="nav-link d-flex align-items-center"
-        >
-          <i class="bi bi-person-badge"></i>
-          <span class="nav-text">Teachers</span>
-        </a>
-        <a href="admin-lessons.html" class="nav-link d-flex align-items-center">
-          <i class="bi bi-journal-text"></i>
-          <span class="nav-text">Lessons</span>
-        </a>
-        <a href="admin-quests.html" class="nav-link d-flex align-items-center">
-          <i class="bi bi-flag"></i>
-          <span class="nav-text">Quests</span>
-        </a>
-        <a
-          href="admin-problems.html"
-          class="nav-link d-flex align-items-center"
-        >
-          <i class="bi bi-puzzle"></i>
-          <span class="nav-text">Problems</span>
-        </a>
-        <a
-          href="admin-leaderboard.html"
-          class="nav-link d-flex align-items-center"
-        >
-          <i class="bi bi-trophy"></i>
-          <span class="nav-text">Leaderboard</span>
-        </a>
-        <a href="admin-rewards.html" class="nav-link d-flex align-items-center">
-          <i class="bi bi-gift"></i>
-          <span class="nav-text">Rewards</span>
-        </a>
+
+      <nav className="p-3">
+        <NavLink to="/admin/dashboard" className="nav-link d-flex align-items-center">
+          <i className="bi bi-speedometer2"></i>
+          <span className="nav-text">Dashboard</span>
+        </NavLink>
+
+        <NavLink to="/admin/students" className="nav-link d-flex align-items-center">
+          <i className="bi bi-people"></i>
+          <span className="nav-text">Students</span>
+        </NavLink>
+
+        <NavLink to="/admin/teachers" className="nav-link d-flex align-items-center">
+          <i className="bi bi-person-badge"></i>
+          <span className="nav-text">Teachers</span>
+        </NavLink>
+
+        <NavLink to="/admin/lessons" className="nav-link d-flex align-items-center">
+          <i className="bi bi-journal-text"></i>
+          <span className="nav-text">Lessons</span>
+        </NavLink>
+
+        <NavLink to="/admin/quests" className="nav-link d-flex align-items-center">
+          <i className="bi bi-flag"></i>
+          <span className="nav-text">Quests</span>
+        </NavLink>
+
+        <NavLink to="/admin/problems" className="nav-link d-flex align-items-center">
+          <i className="bi bi-puzzle"></i>
+          <span className="nav-text">Problems</span>
+        </NavLink>
+
+        <NavLink to="/admin/leaderboard" className="nav-link d-flex align-items-center">
+          <i className="bi bi-trophy"></i>
+          <span className="nav-text">Leaderboard</span>
+        </NavLink>
+
+        <NavLink to="/admin/rewards" className="nav-link d-flex align-items-center">
+          <i className="bi bi-gift"></i>
+          <span className="nav-text">Rewards</span>
+        </NavLink>
       </nav>
     </aside>
   <div className="content">...</div>

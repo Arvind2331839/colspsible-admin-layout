@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Sidebar from "./Sidebar";
-import Header from "./Header";
+import { Outlet } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
+import Header from "../components/AdminHeader";
 
-export default function AdminLayout({ children, title }) {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+export default function AdminLayout({ title }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const toggleSidebar = () => {
     setSidebarOpen(prev => !prev);
@@ -21,7 +22,11 @@ export default function AdminLayout({ children, title }) {
           toggleSidebar={toggleSidebar}
           title={title}
         />
-        {children}
+
+        {/* ROUTER CONTENT */}
+        <main className="container-fluid">
+          <Outlet />
+        </main>
       </div>
     </div>
   );
